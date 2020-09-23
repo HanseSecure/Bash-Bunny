@@ -1,0 +1,31 @@
+#!/bin/bash
+#
+# Title: 	fake_Ransomware - Decryptor
+# Author: 	@HanseSecure
+# Date:		08/2020
+# Version: 	1.0
+# Target: 	Windows 7+
+# Dependencies: files should be encrypted before ;-)
+# Description: awareness ;-)
+# 
+#
+LED G
+ATTACKMODE HID STORAGE
+LANGUAGE='ger'
+# Get the switch position
+source bunny_helpers.sh
+# Execute the powershell command in the run box with the appropriate variables
+QUACK DELAY 5000
+QUACK GUI r
+QUACK DELAY 123
+QUACK STRING powershell -WindowStyle Hidden "\"sleep 5;cd \$home'\Desktop'; Copy-Item .\awareness\* . -Force ; rm -r .\awareness\ -Force  \""
+QUACK DELAY 123
+QUACK ENTER
+QUACK DELAY 123
+QUACK GUI r
+QUACK DELAY 123
+QUACK STRING powershell -WindowStyle Hidden "\"\$wshell = New-Object -ComObject Wscript.Shell; \$wshell.Popup('Your data has been recovered',0,'Try again ;-)',0x0); exit\""
+QUACK DELAY 123
+QUACK ENTER 
+# Signal everything went OK - white
+LED R G B

