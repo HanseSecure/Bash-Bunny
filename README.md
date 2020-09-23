@@ -9,3 +9,6 @@ My custome BashBunny Payloads
 
 Switch 1:
 Several local enumeration tasks (gather interesting files & Data to copy these to the BashBunny storage) + create a hidden folder on the desktop, copy all files from the desktop into this & overwrite all desktop files with an encrypted file from the BashBunny Storage
+
+Switch 2:
+Overwrite the "encrypted" files on the desktop with the original files from the hidden folder
